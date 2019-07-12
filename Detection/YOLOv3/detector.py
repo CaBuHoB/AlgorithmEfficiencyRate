@@ -103,4 +103,7 @@ class YOLOv3(VideoBasedObjectsDetectionAlgorithm):
         model.eval()
         print('Network loaded')
 
-        YOLOv3.detect_video(model, args)
+        input_videos = args.input
+        for video in input_videos:
+            args.input = video
+            YOLOv3.detect_video(model, args)

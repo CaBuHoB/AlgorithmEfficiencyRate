@@ -14,9 +14,7 @@ for file in files_list:
         video_files.append(file)
         full_path_video_files.append(os.path.join(FOLDER_WITH_VIDEO_FILES, file))
 
-for video in video_files:
-    args = Namespace(input=video, outdir=SAVE_PATH_OF_VIDEO_FILES, cuda=cuda, no_show=False)
-    YOLOv3.run(args)
-    print("Video:", video, 'processed')
+args = Namespace(input=full_path_video_files, outdir=SAVE_PATH_OF_VIDEO_FILES, cuda=cuda, no_show=False)
+YOLOv3.run(args)
 
 analysis(video_files, FOLDER_WITH_VIDEO_FILES, SAVE_PATH_OF_VIDEO_FILES)
